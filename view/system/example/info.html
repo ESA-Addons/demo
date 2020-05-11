@@ -1,0 +1,82 @@
+{include file="$esa_header"}
+<div class="padding-sm">
+    <div class="smart-widget widget-dark">
+        <div class="smart-widget-header">
+            admin用户信息
+            <span class="smart-widget-option">
+                <a href="#" class="widget-collapse-option" data-toggle="collapse">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </span>
+        </div>
+        <div class="smart-widget-inner">
+            <div class="smart-widget-body">
+                {:dump($esa_admin)}
+            </div>
+        </div><!-- ./smart-widget-inner -->
+    </div>
+    <div class="smart-widget widget-dark">
+        <div class="smart-widget-header">
+            插件信息
+            <span class="smart-widget-option">
+                <a href="#" class="widget-collapse-option" data-toggle="collapse">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </span>
+        </div>
+        <div class="smart-widget-inner">
+            <div class="smart-widget-body">
+                {:dump($esa_addon)}
+            </div>
+        </div><!-- ./smart-widget-inner -->
+    </div>
+    <div class="smart-widget widget-dark">
+        <div class="smart-widget-header">
+            平台信息
+            <span class="smart-widget-option">
+                <a href="#" class="widget-collapse-option" data-toggle="collapse">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </span>
+        </div>
+        <div class="smart-widget-inner">
+            <div class="smart-widget-body">
+                {:dump($esa_platform)}
+            </div>
+        </div><!-- ./smart-widget-inner -->
+    </div>
+    <div class="smart-widget widget-dark">
+        <div class="smart-widget-header">
+            esa_setting信息
+            <span class="smart-widget-option">
+                <a href="#" class="widget-collapse-option" data-toggle="collapse">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </span>
+        </div>
+        <div class="smart-widget-inner">
+            <div class="smart-widget-body">
+                {:dump($esa_setting)}
+            </div>
+        </div><!-- ./smart-widget-inner -->
+    </div>
+    <div class="smart-widget widget-dark">
+        <div class="smart-widget-header">
+            esa_config信息
+            <span class="smart-widget-option">
+                <a href="#" class="widget-collapse-option" data-toggle="collapse">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </span>
+        </div>
+        <div class="smart-widget-inner">
+            <div class="smart-widget-body">
+                {:dump($esa_config)}
+            </div>
+        </div><!-- ./smart-widget-inner -->
+    </div>
+</div>
+<script>
+    require(["simplify"])
+</script>
+{include file="$esa_footer"}
