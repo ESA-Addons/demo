@@ -1,3 +1,71 @@
 {include file="$esa_header"}
-table测试
+<div class="padding-md">
+    <div id="table1"></div>
+</div>
+<div class="padding-md">
+    <div id="table2"></div>
+</div>
+<script id="headToolbar" type="text/html">
+    <button esa-event="get_ids">获取ids</button>
+    <button esa-event="reload">重新加载</button>
+</script>
+<script id="tool" type="text/html">
+    <button esa-event="do">测试</button>
+</script>
+<script>
+require(['esa_util','layer'],function(esa,layer){
+    esa.table.render({
+        elem: "#table2",
+        url: "{:url('admin/platform/list')}",
+        page: true,
+        select: "checkbox",
+        cols: [
+            {field:"id",width:"50px",title:"PID"},
+            {field:"logo",width:"100px",title:"头像"},
+            {field:"type",width:"150px",title:"类型"},
+            {field:"name",width:"auto",title:"标题"},
+            {field:"nickname",width:"100px",title:"管理员"},
+            {field:"tool",width:"10%",title:"操作",toolbar:"#tool"}
+        ],
+        headToolbar:"#headToolbar",
+        limit: 10,
+    })
+    esa.table.on("#table2",function(obj){
+        console.log(obj)
+        if(obj.event == "get_ids"){
+            layer.msg(JSON.stringify(obj.ids));
+        }else if(obj.event == "do"){
+            layer.msg("测试"+obj.data.id);
+        }else if(obj.event == "reload"){
+            esa.table.reload("#table2");
+        }
+    })
+    esa.table.render({
+        elem: "#table1",
+        url: "{:url('admin/platform/list')}",
+        page: true,
+        select: "checkbox",
+        cols: [
+            {field:"id",width:"50px",title:"PID"},
+            {field:"logo",width:"100px",title:"头像"},
+            {field:"type",width:"150px",title:"类型"},
+            {field:"name",width:"auto",title:"标题"},
+            {field:"nickname",width:"100px",title:"管理员"},
+            {field:"tool",width:"10%",title:"操作",toolbar:"#tool"}
+        ],
+        headToolbar:"#headToolbar",
+        limit: 10,
+    })
+    esa.table.on("#table1",function(obj){
+        console.log(obj)
+        if(obj.event == "get_ids"){
+            layer.msg(JSON.stringify(obj.ids));
+        }else if(obj.event == "do"){
+            layer.msg("测试"+obj.data.id);
+        }else if(obj.event == "reload"){
+            esa.table.reload("#table1");
+        }
+    })
+})
+</script>
 {include file="$esa_footer"}
