@@ -32,4 +32,28 @@ class Example extends Main
     {
         return $this->fetch();
     }
+    
+    public function list()
+    {
+        $page = $this->request->param("page");
+        $limit = $this->request->param("limit");
+        $m = 0;
+        $list = [];
+        for($i = ($page-1)*$limit ; $i < $page*$limit ; $i++){
+            if($i>100) break;
+            $list[$m] = [
+                "id"    => $i,
+                "logo"  => "logo".$i,
+                "type"  => "类型$i",
+                "name"  => "名称$i",
+                "nickname"  => "姓名$i"
+            ];
+            $m++;
+        }
+        $data = [
+            "total" => 100,
+            "data"  => $list,
+        ];
+        return json($data);
+    }
 }

@@ -1,9 +1,7 @@
 {include file="$esa_header"}
 <div class="padding-md">
-    <div id="table1"></div>
-</div>
-<div class="padding-md">
     <div id="table2"></div>
+    <div id="table1"></div>
 </div>
 <script id="headToolbar" type="text/html">
     <button esa-event="get_ids">获取ids</button>
@@ -16,7 +14,7 @@
 require(['esa_util','layer'],function(esa,layer){
     esa.table.render({
         elem: "#table2",
-        url: "{:url('admin/platform/list')}",
+        url: "{:addons_url('demo://system.example/list')}",
         page: true,
         select: "checkbox",
         cols: [
@@ -28,10 +26,9 @@ require(['esa_util','layer'],function(esa,layer){
             {field:"tool",width:"10%",title:"操作",toolbar:"#tool"}
         ],
         headToolbar:"#headToolbar",
-        limit: 10,
+        limit: 5,
     })
     esa.table.on("#table2",function(obj){
-        console.log(obj)
         if(obj.event == "get_ids"){
             layer.msg(JSON.stringify(obj.ids));
         }else if(obj.event == "do"){
@@ -42,9 +39,9 @@ require(['esa_util','layer'],function(esa,layer){
     })
     esa.table.render({
         elem: "#table1",
-        url: "{:url('admin/platform/list')}",
+        url: "{:addons_url('demo://system.example/list')}",
         page: true,
-        select: "checkbox",
+        select: "radio",
         cols: [
             {field:"id",width:"50px",title:"PID"},
             {field:"logo",width:"100px",title:"头像"},
@@ -57,7 +54,6 @@ require(['esa_util','layer'],function(esa,layer){
         limit: 10,
     })
     esa.table.on("#table1",function(obj){
-        console.log(obj)
         if(obj.event == "get_ids"){
             layer.msg(JSON.stringify(obj.ids));
         }else if(obj.event == "do"){
