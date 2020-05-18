@@ -1,5 +1,61 @@
 {include file="$esa_header"}
 <div class="padding-md">
-    
+    <div class="smart-widget">
+		<div class="smart-widget-inner">
+			<div class="smart-widget-body">
+				<form id="formToggleLine" class="form-horizontal no-margin form-border">
+					<div class="form-group">
+						<label class="col-lg-2 control-label">单文件选择器</label>
+						<div class="col-lg-10">
+							{ESA:TPL_IMG name="logo"}
+							<span class="help-block">例：{ ESA:TPL_IMG name="image" value="$info['image']" options=["type"="image"] /}</span>
+						</div><!-- /.col -->
+					</div><!-- /form-group -->
+					<div class="form-group">
+						<label class="col-lg-2 control-label">多文件选择器</label>
+						<div class="col-lg-10">
+							{ESA:TPL_IMGS name="logo"}
+							<span class="help-block">例：{ ESA:TPL_IMGS name="images" value="$info['images']" options=["type"="image"] /}</span>
+						</div><!-- /.col -->
+					</div><!-- /form-group -->
+					<div class="form-group">
+						<label class="col-lg-2 control-label">时间选择器（esa）</label>
+						<div class="col-lg-10">
+							{ESA:TPL_DATE name="time"/}
+							<span class="help-block">例：{ ESA:TPL_DATE name="time" value="$info.time" /}</span>
+						</div><!-- /.col -->
+					</div><!-- /form-group -->
+					<div class="form-group">
+						<label class="col-lg-2 control-label">时间选择器（laydata）</label>
+						<div class="col-lg-10">
+							{ESA:TPL_DATE2 name="time"/}
+							<span class="help-block">例：{ESA:TPL_DATE2 name="time"/}</span>
+						</div><!-- /.col -->
+					</div><!-- /form-group -->
+					<div class="form-group">
+						<label class="col-lg-2 control-label">经纬度选择器</label>
+						<div class="col-lg-10">
+							{ESA:TPL_GLOBE name="globe"/}
+							<span class="help-block">例：{ ESA:TPL_GLOBE name="globe" value="$info['globe']" /}</span>
+						</div><!-- /.col -->
+					</div><!-- /form-group -->
+					<div class="form-group">
+						<label class="col-lg-2 control-label">图标选择器</label>
+						<div class="col-lg-10">
+							{ESA:TPL_ICON name="icon"/}
+							<span class="help-block">例：{ ESA:TPL_ICON name="icon" value="$info.icon" /}</span>
+						</div><!-- /.col -->
+					</div><!-- /form-group -->
+					<div class="form-group">
+						<label class="col-lg-2 control-label">富文本编辑器</label>
+						<div class="col-lg-10">
+							{ESA:TPL_EDITOR name="editor"/}
+							<span class="help-block">例：{ ESA:TPL_EDITOR name="editor" value="$info.editor" /}</span>
+						</div><!-- /.col -->
+					</div><!-- /form-group -->
+				</form>
+			</div>
+		</div><!-- ./smart-widget-inner -->
+	</div>
 </div>
 {include file="$esa_footer"}
