@@ -11,8 +11,8 @@
     <button esa-event="do">测试</button>
 </script>
 <script>
-require(['esa_util','layer'],function(esa,layer){
-    esa.table.render({
+require(['esa_table','layer'],function(Table,layer){
+    Table.init({
         elem: "#table2",
         url: "{:addons_url('demo://system.example/list')}",
         page: true,
@@ -28,16 +28,16 @@ require(['esa_util','layer'],function(esa,layer){
         headToolbar:"#headToolbar",
         limit: 5,
     })
-    esa.table.on("#table2",function(obj){
+    Table.on("#table2",function(obj){
         if(obj.event == "get_ids"){
             layer.msg(JSON.stringify(obj.ids));
         }else if(obj.event == "do"){
             layer.msg("测试"+obj.data.id);
         }else if(obj.event == "reload"){
-            esa.table.reload("#table2");
+            Table.reload("#table2");
         }
     })
-    esa.table.render({
+    Table.init({
         elem: "#table1",
         url: "{:addons_url('demo://system.example/list')}",
         page: true,
@@ -53,13 +53,13 @@ require(['esa_util','layer'],function(esa,layer){
         headToolbar:"#headToolbar",
         limit: 10,
     })
-    esa.table.on("#table1",function(obj){
+    Table.on("#table1",function(obj){
         if(obj.event == "get_ids"){
             layer.msg(JSON.stringify(obj.ids));
         }else if(obj.event == "do"){
             layer.msg("测试"+obj.data.id);
         }else if(obj.event == "reload"){
-            esa.table.reload("#table1");
+            Table.reload("#table1");
         }
     })
 })

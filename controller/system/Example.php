@@ -40,7 +40,7 @@ class Example extends Main
         $m = 0;
         $list = [];
         for($i = ($page-1)*$limit ; $i < $page*$limit ; $i++){
-            if($i>100) break;
+            if($i>($page-1)*$limit + 100) break;
             $list[$m] = [
                 "id"    => $i,
                 "logo"  => "logo".$i,
@@ -52,6 +52,7 @@ class Example extends Main
         }
         $data = [
             "total" => 100,
+            "last_page" => 100/$limit,
             "data"  => $list,
         ];
         return json($data);
