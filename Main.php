@@ -5,7 +5,6 @@ use ESA\Addons;
 
 class Main extends Addons
 {
-    
     /**
      * 插件安装方法
      * @return bool
