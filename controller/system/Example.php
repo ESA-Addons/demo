@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Description: demo 控制器
+ * @Version: 1.0
+ * @Autor: 猪在天上飞 <root@bug-maker.com>
+ * @Date: 2020-10-01 10:11:59
+ * @LastEditors: 猪在天上飞 <root@bug-maker.com>
+ * @LastEditTime: 2020-10-01 10:16:07
+ */
 namespace addons\demo\controller\system;
 
 use addons\demo\Main;
@@ -26,17 +34,39 @@ class Example extends Main
     {
         return $this->fetch();
     }
-    
-    public function table()
-    {
-        return $this->fetch();
-    }
 
     public function alert()
     {
         return $this->fetch();
     }
     
+    /**
+     * @description: 表格页面
+     * @return page 
+     * @author: 猪在天上飞 <root@bug-maker.com>
+     */
+    public function table()
+    {
+        return $this->fetch();
+    }
+
+    /**
+     * @description: 表格表单
+     * @author: 猪在天上飞 <root@bug-maker.com>
+     */
+    public function form()
+    {
+        if($this->request->isajax()){
+            $this->result("保存成功",$this->request->param());
+        }
+        return $this->fetch();
+    }
+
+    /**
+     * @description: 表格数据
+     * @return json
+     * @author: 猪在天上飞 <root@bug-maker.com>
+     */
     public function list()
     {
         $page = $this->request->param("page");

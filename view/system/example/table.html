@@ -4,6 +4,7 @@
     <div id="table1"></div>
 </div>
 <script id="headToolbar" type="text/html">
+    <button esa-event="add">添加</button>
     <button esa-event="get_ids">获取ids</button>
     <button esa-event="reload">重新加载</button>
 </script>
@@ -35,6 +36,8 @@ require(['esa_table','layer'],function(Table,layer){
             layer.msg("测试"+obj.data.id);
         }else if(obj.event == "reload"){
             Table.reload("#table2");
+        }else if(obj.event == "add"){
+            ESA.fun.open("{:addons_url('demo://system.example/form')}","标题",{});
         }
     })
     Table.init({
