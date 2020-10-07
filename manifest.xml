@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns="https://www.bug-maker.com" version="0.1">
     <application>   <!--应用信息-->
-        <name><![CDATA[ESA_demo模块]]></name>
-        <identification><![CDATA[demo]]></identification>
-        <type><![CDATA[addon]]></type>      <!--应用类型system/platform/addon-->
-        <version><![CDATA[0.0.1]]></version>
-        <synopsis><![CDATA[ESA的demo模块]]></synopsis>
-        <author><![CDATA[猪在天上飞]]></author>
-        <url><![CDATA[https://www.bug-maker.com]]></url>
+        <name><![CDATA[ESA_demo模块]]></name>               <!--名称-->
+        <identification><![CDATA[demo]]></identification>   <!--标识名-->
+        <type><![CDATA[addon]]></type>                      <!--类型system/platform/addon-->
+        <version><![CDATA[0.0.1]]></version>                <!--版本-->
+        <synopsis><![CDATA[ESA的demo模块]]></synopsis>      <!--简介-->
+        <author><![CDATA[猪在天上飞]]></author>             <!--作者-->
+        <url><![CDATA[https://www.bug-maker.com]]></url>    <!--链接-->
     </application>
-    <basics>    <!--基础-->
-        <addon>
+    <basics>        <!--基础处理-->
+        <addon>                                             <!--基础的应用-->
             <!--<item name="sys_base" contrast=">=" version="1.0.0" />-->
         </addon>
-        <composer>
+        <composer>                                          <!--基础的插件-->
             <item name="esa/esa-addons" contrast="=" version="dev-master" />
             <item name="topthink/framework" contrast="=" version="5.1.*" />
         </composer>
-        <extend>
+        <extend>                                            <!--基础类-->
             <item name="esa" contrast=">=" version="1.0.0" />
         </extend>
     </basics>
-    <system>    <!--系统钩子-->
-        <hook index="app_init" ctrl="demo/hook"/>
+    <system>        <!--系统处理-->
+        <hook behavier="app_init"/>                         <!--定义初始化钩子-->
+        <hook behavier="esaAddonMenu"/>                     <!--定义自定义菜单钩子-->
+        <index ctrl="index.index/index"/>                   <!--定义应用首页进入控制器-->
+        <fixedpage ctrl="admin.index/index"/>               <!--定义应用后台固定页进入控制器-->
     </system>
-    <mold>      <!--addons类型-->
-        <item name="web" />       <!--Web类型-->
-        <item name="wxapp" />     <!--微信小程序-->
-        <item name="wechat" />    <!--微信公众号-->
-        <item name="app" />       <!--安卓应用-->
+    <mold>          <!--应用类型-->
+        <item name="web" />                                 <!--Web类型-->
+        <item name="wxapp" />                               <!--微信小程序-->
+        <item name="wechat" />                              <!--微信公众号-->
+        <item name="android" />                             <!--安卓应用-->
     </mold>
-    <menu>      <!--addons菜单-->
+    <menu>          <!--进入应用显示的菜单-->
         <entry en="example" title="示例">
             <entry en="tag1" title="1示例" ctrl="example/tag" />
             <entry en="table2" title="2示例" ctrl="example/tag" />
@@ -42,8 +45,7 @@
             <entry en="set" title="配置设置" ctrl="sys/set" />
         </entry>
     </menu>
-    <!--系统菜单-->
-    <system_menu>   
+    <system_menu>   <!--系统菜单（直接显示到后台菜单）-->
         <entry en="example" title="系统示例" icon="fa fa-microchip">
             <entry en="info" title="信息显示" ctrl="system.example/info" />
             <entry en="tag" title="标签示例" ctrl="system.example/tag" />
@@ -51,8 +53,7 @@
             <entry en="tag" title="弹窗示例" ctrl="system.example/alert" />
         </entry>
     </system_menu>
-    <!--平台菜单-->
-    <platform_menu> 
+    <platform_menu> <!--平台菜单（直接显示进平台菜单中）-->
         <entry mold="web" en="example" title="web平台示例" icon="fa fa-umbrella">
             <entry mold="web" en="tag" title="平台设置" ctrl="platform.setting/index" />
             <entry mold="web" en="table" title="平台插件" ctrl="platform.addon/index" />
@@ -62,7 +63,7 @@
             <entry mold="wechat" en="table" title="平台插件" ctrl="platform.addon/index" />
         </entry>
     </platform_menu>
-    <install><![CDATA[install.sql]]></install>
-    <upgrade><![CDATA[upgrade.sql]]></upgrade>
-    <uninstall><![CDATA[uninstall.sql]]></uninstall>
+    <install><![CDATA[install.sql]]></install>              <!--安装时执行的sql文件-->
+    <upgrade><![CDATA[upgrade.sql]]></upgrade>              <!--升级时执行的sql文件-->
+    <uninstall><![CDATA[uninstall.sql]]></uninstall>        <!--卸载时执行的sql文件-->
 </manifest>

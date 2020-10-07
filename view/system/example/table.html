@@ -24,6 +24,9 @@ require(['esa_table','layer'],function(Table,layer){
             {field:"type",width:"150px",title:"类型"},
             {field:"name",width:"auto",title:"标题"},
             {field:"nickname",width:"100px",title:"管理员"},
+            {field:"id",title:"模板",tpl:function(d){
+                return "<div>"+d.id+"</div>";
+            }},
             {field:"tool",width:"10%",title:"操作",toolbar:"#tool"}
         ],
         headToolbar:"#headToolbar",
