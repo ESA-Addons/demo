@@ -13,6 +13,13 @@
         </div><!-- /.col -->
     </div>
     <div class="form-group">
+        <label class="col-sm-2 control-label">时间选择器(TPL)</label>
+        <div class="col-sm-10">
+            {ESA:DATE name="tpl_date" value="$info.tpl_date" format="YYYY-MM-DD"}
+            <span class="help-block">例：{ESA【:】DATE name="tpl_date" value="$info.tpl_date" format="YYYY-MM-DD"}</span>
+        </div><!-- /.col -->
+    </div>
+    <div class="form-group">
         <label class="col-sm-2 control-label">图标选择器</label>
         <div class="col-sm-10 plupload-group">
             <div class="input-group">
@@ -24,6 +31,13 @@
                     <button class="btn btn-default chose_icon disabled" id="chose_icon_icon" type="button" data-input-id="icon" data-preview-id="priview-icon">图标</button>
                 </span>
             </div>
+        </div><!-- /.col -->
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">图标选择器(TPL)</label>
+        <div class="col-sm-10 plupload-group">
+            {ESA:ICON name="tpl_icon" value="$info.tpl_icon"}
+            <span class="help-block">例：{ESA【:】ICON name="tpl_icon" value="$info.tpl_icon"}</span>
         </div><!-- /.col -->
     </div>
     <div class="form-group">
@@ -42,6 +56,13 @@
             <ul class="row list-inline" id="preview_upload">
                 
             </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">文件选择器(TPL)</label>
+        <div class="col-sm-10 plupload-group">
+            {ESA:FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image"}
+            <span class="help-block">例：{ESA【:】FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image"}</span>
         </div>
     </div>
     <div class="form-group">

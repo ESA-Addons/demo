@@ -4,52 +4,45 @@
 		<div class="smart-widget-inner">
 			<div class="smart-widget-body">
 				<form id="formToggleLine" class="form-horizontal no-margin form-border">
-					<div class="form-group">
-						<label class="col-lg-2 control-label">单文件选择器</label>
+				    <div class="form-group">
+						<label class="col-lg-2 control-label">时间选择器（esa）</label>
 						<div class="col-lg-10">
-							{ESA:TPL_IMG name="logo"}
-							<span class="help-block">例：{ ESA:TPL_IMG name="image" value="$info['image']" options=["type"="image"] /}</span>
+							{ESA:DATE name="tpl_date" value="$info.tpl_date|default='1999-01-10'" format="YYYY-MM-DD"}
+							<span class="help-block">例：</span>
+						</div><!-- /.col -->
+					</div><!-- /form-group -->
+					<div class="form-group">
+						<label class="col-lg-2 control-label">文件选择器</label>
+						<div class="col-lg-10">
+                            {ESA:FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image|default=''"}
+							<span class="help-block">例：</span>
 						</div><!-- /.col -->
 					</div><!-- /form-group -->
 					<div class="form-group">
 						<label class="col-lg-2 control-label">多文件选择器</label>
 						<div class="col-lg-10">
-							{ESA:TPL_IMGS name="logo"}
+
 							<span class="help-block">例：{ ESA:TPL_IMGS name="images" value="$info['images']" options=["type"="image"] /}</span>
-						</div><!-- /.col -->
-					</div><!-- /form-group -->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">时间选择器（esa）</label>
-						<div class="col-lg-10">
-							{ESA:TPL_DATE name="time"/}
-							<span class="help-block">例：{ ESA:TPL_DATE name="time" value="$info.time" /}</span>
-						</div><!-- /.col -->
-					</div><!-- /form-group -->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">时间选择器（laydata）</label>
-						<div class="col-lg-10">
-							{ESA:TPL_DATE2 name="time"/}
-							<span class="help-block">例：{ESA:TPL_DATE2 name="time"/}</span>
 						</div><!-- /.col -->
 					</div><!-- /form-group -->
 					<div class="form-group">
 						<label class="col-lg-2 control-label">经纬度选择器</label>
 						<div class="col-lg-10">
-							{ESA:TPL_GLOBE name="globe"/}
+
 							<span class="help-block">例：{ ESA:TPL_GLOBE name="globe" value="$info['globe']" /}</span>
 						</div><!-- /.col -->
 					</div><!-- /form-group -->
 					<div class="form-group">
 						<label class="col-lg-2 control-label">图标选择器</label>
 						<div class="col-lg-10">
-							{ESA:TPL_ICON name="icon"/}
+                            {ESA:ICON name="tpl_icon" value="$info.tpl_icon|default='fa fa-home'"}
 							<span class="help-block">例：{ ESA:TPL_ICON name="icon" value="$info.icon" /}</span>
 						</div><!-- /.col -->
 					</div><!-- /form-group -->
 					<div class="form-group">
 						<label class="col-lg-2 control-label">富文本编辑器</label>
 						<div class="col-lg-10">
-							{ESA:TPL_EDITOR name="editor"/}
+
 							<span class="help-block">例：{ ESA:TPL_EDITOR name="editor" value="$info.editor" /}</span>
 						</div><!-- /.col -->
 					</div><!-- /form-group -->

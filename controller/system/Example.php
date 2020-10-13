@@ -59,6 +59,12 @@ class Example extends Main
         if($this->request->isajax()){
             $this->result("保存成功",$this->request->param());
         }
+        $data = [
+            "tpl_date"  => "2020-10-01 12:00",
+            "tpl_icon"  => "fa fa-ban",
+            "tpl_image" => "20200918/8fe6b6846a88736dccb06663d0a1626a.jpg",
+        ];
+        $this->assign("info",$data);
         return $this->fetch();
     }
 
