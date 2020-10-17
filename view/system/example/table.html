@@ -4,15 +4,15 @@
     <div id="table1"></div>
 </div>
 <script id="headToolbar" type="text/html">
-    <button esa-event="add">添加</button>
-    <button esa-event="get_ids">获取ids</button>
-    <button esa-event="reload">重新加载</button>
+    <button class="btn btn-primary btn-sm" esa-event="add">添加<%if (elem=="#table1"){ %>HTML<% }else{ %>TPL<%}%></button>
+    <button class="btn btn-success btn-sm" esa-event="get_ids">获取ids</button>
+    <button class="btn btn-info btn-sm" esa-event="reload"><i class="fa fa-refresh"></i></button>
 </script>
 <script id="tool" type="text/html">
     <button esa-event="do">测试</button>
 </script>
 <script>
-require(['esa_table','layer'],function(Table,layer){
+require(['ESA','esa_table','layer',"esa_switch"],function(ESA,Table,layer){
     Table.init({
         elem: "#table2",
         url: "{:addons_url('demo://system.example/list')}",
@@ -25,7 +25,7 @@ require(['esa_table','layer'],function(Table,layer){
             {field:"name",width:"auto",title:"标题"},
             {field:"nickname",width:"100px",title:"管理员"},
             {field:"id",title:"模板",tpl:function(d){
-                return "<div>"+d.id+"</div>";
+                return "<span class='switch-off switch-sm' esa-event='test'><span class='slider'></span></span>";
             }},
             {field:"tool",width:"10%",title:"操作",toolbar:"#tool"}
         ],
@@ -40,7 +40,9 @@ require(['esa_table','layer'],function(Table,layer){
         }else if(obj.event == "reload"){
             Table.reload("#table2");
         }else if(obj.event == "add"){
-            ESA.fun.open("{:addons_url('demo://system.example/form')}","标题",{});
+            ESA.fun.open("{:addons_url('demo://system.example/form',['type'=>'tpl'])}","标题",{});
+        }else{
+            ESA.msg(obj.event+"事件触发");
         }
     })
     Table.init({
@@ -57,7 +59,7 @@ require(['esa_table','layer'],function(Table,layer){
             {field:"tool",width:"10%",title:"操作",toolbar:"#tool"}
         ],
         headToolbar:"#headToolbar",
-        limit: 10,
+        limit: 5,
     })
     Table.on("#table1",function(obj){
         if(obj.event == "get_ids"){
@@ -66,6 +68,10 @@ require(['esa_table','layer'],function(Table,layer){
             layer.msg("测试"+obj.data.id);
         }else if(obj.event == "reload"){
             Table.reload("#table1");
+        }else if(obj.event == "add"){
+            ESA.fun.open("{:addons_url('demo://system.example/form',['type'=>'html'])}","标题",{});
+        }else{
+            ESA.msg("表格内事件触发");
         }
     })
 })

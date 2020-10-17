@@ -65,6 +65,7 @@ class Example extends Main
             "tpl_image" => "20200918/8fe6b6846a88736dccb06663d0a1626a.jpg",
         ];
         $this->assign("info",$data);
+        $this->assign("type",$this->request->param("type"));
         return $this->fetch();
     }
 

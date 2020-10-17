@@ -1,4 +1,67 @@
 {include file="$esa_header"}
+{if $type=="tpl"}
+<form class="form-horizontal no-margin padding-md form-add" method="POST" data-parsley-validate>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">input(require)</label>
+        <div class="col-sm-10">
+            <input class="form-control" name="name" type="text" placeholder="名称" value="{$info.name|default=''}" required="required" data-parsley-required="true" data-parsley-trigger="change" data-parsley-required-message="用户名不可为空" data-parsley-minlength="6" data-parsley-minlength-message="用户名位数不可少于6位" data-parsley-maxlength="29" data-parsley-pattern=(?!^\d+$)(?!^[a-zA-Z]+$)[0-9a-zA-Z]{4,23} data-parsley-pattern-message="必须为字母或数字">
+        </div><!-- /.col -->
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">时间选择器(TPL)</label>
+        <div class="col-sm-10">
+            {ESA:DATE name="tpl_date" value="$info.tpl_date" format="YYYY-MM-DD"}
+            <span class="help-block">例：{ESA【:】DATE name="tpl_date" value="$info.tpl_date" format="YYYY-MM-DD"}</span>
+        </div><!-- /.col -->
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">图标选择器(TPL)</label>
+        <div class="col-sm-10 plupload-group">
+            {ESA:ICON name="tpl_icon" value="$info.tpl_icon"}
+            <span class="help-block">例：{ESA【:】ICON name="tpl_icon" value="$info.tpl_icon"}</span>
+        </div><!-- /.col -->
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">文件选择器(TPL)</label>
+        <div class="col-sm-10 plupload-group">
+            {ESA:FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image"}
+            <span class="help-block">例：{ESA【:】FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image"}</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">经纬度选择器</label>
+        <div class="col-sm-10 plupload-group">
+            {ESA:GLOBE name="tpl_globe_coordinates" type="coordinates" value=""}
+            <span class="help-block">例：{ESA【:】GLOBE name="tpl_globe" type="coordinates" value=""}</span>
+            <span class="help-block">参数说明</span>
+            <span class="help-block">type:coordinates:经纬度（longitude经度，latitude纬度）,EEA电子围栏</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">电子围栏选择器</label>
+        <div class="col-sm-10 plupload-group">
+            {ESA:GLOBE name="tpl_globe_eea" type="EEA" value=""}
+            <span class="help-block">例：{ESA【:】GLOBE name="tpl_globe_eea" type="EEA" value=""}</span>
+            <span class="help-block">参数说明</span>
+            <span class="help-block">type:coordinates:经纬度（longitude经度，latitude纬度）,EEA电子围栏</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="hidden" name="id" value="{$info.id|default=''}">
+            {:token()}
+        </div><!-- /.col -->
+    </div>
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-10">
+            <button type="submit" class="btn btn-success btn-embossed">确定</button>
+            <button type="reset" class="btn btn-default btn-embossed">重置</button>
+            <button type="button" class="btn btn-success btn-embossed layer-close">取消</button>
+        </div>
+    </div>
+</form>
+{elseif $type=="html" /}
 <form class="form-horizontal no-margin padding-md form-add" method="POST" data-parsley-validate>
     <div class="form-group">
         <label class="col-sm-2 control-label">input(require)</label>
@@ -13,13 +76,6 @@
         </div><!-- /.col -->
     </div>
     <div class="form-group">
-        <label class="col-sm-2 control-label">时间选择器(TPL)</label>
-        <div class="col-sm-10">
-            {ESA:DATE name="tpl_date" value="$info.tpl_date" format="YYYY-MM-DD"}
-            <span class="help-block">例：{ESA【:】DATE name="tpl_date" value="$info.tpl_date" format="YYYY-MM-DD"}</span>
-        </div><!-- /.col -->
-    </div>
-    <div class="form-group">
         <label class="col-sm-2 control-label">图标选择器</label>
         <div class="col-sm-10 plupload-group">
             <div class="input-group">
@@ -31,13 +87,6 @@
                     <button class="btn btn-default chose_icon disabled" id="chose_icon_icon" type="button" data-input-id="icon" data-preview-id="priview-icon">图标</button>
                 </span>
             </div>
-        </div><!-- /.col -->
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">图标选择器(TPL)</label>
-        <div class="col-sm-10 plupload-group">
-            {ESA:ICON name="tpl_icon" value="$info.tpl_icon"}
-            <span class="help-block">例：{ESA【:】ICON name="tpl_icon" value="$info.tpl_icon"}</span>
         </div><!-- /.col -->
     </div>
     <div class="form-group">
@@ -59,11 +108,37 @@
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-2 control-label">文件选择器(TPL)</label>
+        <label class="col-sm-2 control-label">经纬度选择器</label>
         <div class="col-sm-10 plupload-group">
-            {ESA:FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image"}
-            <span class="help-block">例：{ESA【:】FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image"}</span>
+            <div class="input-group">
+                <input type="text" class="form-control" id="cooordinate" value="{$info.upload|default=''}" readonly="">
+                <span class="input-group-btn">
+                    <button class="btn btn-default chose_globe disabled" type="button" data-input-id="cooordinate" data-type="coordinates">地图</button>
+                </span>
+            </div>
         </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">电子围栏选择器</label>
+        <div class="col-sm-10 plupload-group">
+            <div class="input-group">
+                <input type="text" class="form-control" id="eea" value="{$info.upload|default=''}" readonly="">
+                <span class="input-group-btn">
+                    <button class="btn btn-default chose_globe disabled" type="button" data-input-id="eea" data-type="EEA">地图</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">多级联动-地区（json）</label>
+        <div class="col-sm-10">
+            <div class="form-inline linkage" data-url="/static/libs/jQuery/cxSelect/cityData-simple.json" data-selects="province,city,area" data-json-space="" data-json-name="n" data-json-value="">
+                <select class="form-control province"></select>
+                <select class="form-control city"></select>
+                <select class="form-control area"></select>
+            </div>
+            <span class="help-block">来源：<a href="http://code.ciaoca.com/">前端开发库</a></span>
+        </div><!-- /.col -->
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">textarea</label>
@@ -93,6 +168,9 @@
         </div>
     </div>
 </form>
+{else /}
+无type参数
+{/if}
 <script>
     require(['esa_form'],function(form,esa){
         function confirmCallback(){

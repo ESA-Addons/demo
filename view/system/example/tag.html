@@ -15,7 +15,11 @@
 						<label class="col-lg-2 control-label">文件选择器</label>
 						<div class="col-lg-10">
                             {ESA:FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image|default=''"}
-							<span class="help-block">例：</span>
+							<span class="help-block">例：{ESA【:】FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image|default=''"}</span>
+							<span class="help-block">参数说明：</span>
+							<span class="help-block">type:plupload为上传按钮，chose_file为选择按钮</span>
+							<span class="help-block">mimetype:文件选择类型</span>
+							<span class="help-block">multiple:true为单选，false为多选</span>
 						</div><!-- /.col -->
 					</div><!-- /form-group -->
 					<div class="form-group">
