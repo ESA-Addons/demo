@@ -14,8 +14,8 @@
 					<div class="form-group">
 						<label class="col-lg-2 control-label">文件选择器</label>
 						<div class="col-lg-10">
-                            {ESA:FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image|default=''"}
-							<span class="help-block">例：{ESA【:】FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image|default=''"}</span>
+                            {ESA:FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="true" maxsize="10MB" value="$info.tpl_image|default=''"}
+							<span class="help-block">例：{ESA【:】FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="true" maxsize="10MB" value="$info.tpl_image|default=''"}</span>
 							<span class="help-block">参数说明：</span>
 							<span class="help-block">type:plupload为上传按钮，chose_file为选择按钮</span>
 							<span class="help-block">mimetype:文件选择类型</span>
@@ -25,15 +25,7 @@
 					<div class="form-group">
 						<label class="col-lg-2 control-label">多文件选择器</label>
 						<div class="col-lg-10">
-
-							<span class="help-block">例：{ ESA:TPL_IMGS name="images" value="$info['images']" options=["type"="image"] /}</span>
-						</div><!-- /.col -->
-					</div><!-- /form-group -->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">经纬度选择器</label>
-						<div class="col-lg-10">
-
-							<span class="help-block">例：{ ESA:TPL_GLOBE name="globe" value="$info['globe']" /}</span>
+                            {ESA:FILE name="tpl_test2" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image|default=''"}
 						</div><!-- /.col -->
 					</div><!-- /form-group -->
 					<div class="form-group">
@@ -43,6 +35,24 @@
 							<span class="help-block">例：{ ESA:TPL_ICON name="icon" value="$info.icon" /}</span>
 						</div><!-- /.col -->
 					</div><!-- /form-group -->
+					<div class="form-group">
+                        <label class="col-lg-2 control-label">经纬度选择器</label>
+                        <div class="col-lg-10 plupload-group">
+                            {ESA:GLOBE name="tpl_globe_coordinates" type="coordinates" value=""}
+                            <span class="help-block">例：{ESA【:】GLOBE name="tpl_globe" type="coordinates" value=""}</span>
+                            <span class="help-block">参数说明</span>
+                            <span class="help-block">type:coordinates:经纬度（longitude经度，latitude纬度）,EEA电子围栏</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">电子围栏选择器</label>
+                        <div class="col-lg-10 plupload-group">
+                            {ESA:GLOBE name="tpl_globe_eea" type="EEA" value=""}
+                            <span class="help-block">例：{ESA【:】GLOBE name="tpl_globe_eea" type="EEA" value=""}</span>
+                            <span class="help-block">参数说明</span>
+                            <span class="help-block">type:coordinates:经纬度（longitude经度，latitude纬度）,EEA电子围栏</span>
+                        </div>
+                    </div>
 					<div class="form-group">
 						<label class="col-lg-2 control-label">富文本编辑器</label>
 						<div class="col-lg-10">
