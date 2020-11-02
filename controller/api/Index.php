@@ -5,11 +5,16 @@ use addons\demo\Main;
 
 class Index extends Main
 {
-    protected $ESA_TYPE     = "INDEX";
-    protected $EXPOSURE     = ["index"];
+    protected $ESA_TYPE     = "API";
+    protected $EXPOSURE     = [];
     
     public function index()
     {
-        return $this->result("123",[],0);
+        $data = [
+            "pid"   => PLATFORM_ID,
+            "uid"   => $this->ESA_USER['id']
+        ];
+        
+        return $this->result("",$data,0);
     }
 }

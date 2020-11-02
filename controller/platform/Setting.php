@@ -18,7 +18,7 @@ class Setting extends Main
     protected $EXPOSURE     = [];
     
     public function index(){
-        dump($this);
+        // dump($this);
         return $this->fetch();
     }
 }
