@@ -16,21 +16,21 @@
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">图标选择器(TPL)</label>
-        <div class="col-sm-10 plupload-group">
+        <div class="col-sm-10 esa_upload-group">
             {ESA:ICON name="tpl_icon" value="$info.tpl_icon"}
             <span class="help-block">例：{ESA【:】ICON name="tpl_icon" value="$info.tpl_icon"}</span>
         </div><!-- /.col -->
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">文件选择器(TPL)</label>
-        <div class="col-sm-10 plupload-group">
-            {ESA:FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image"}
-            <span class="help-block">例：{ESA【:】FILE name="tpl_test" type="plupload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image"}</span>
+        <div class="col-sm-10 esa_upload-group">
+            {ESA:FILE name="tpl_test" type="esa_upload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image"}
+            <span class="help-block">例：{ESA【:】FILE name="tpl_test" type="esa_upload,chose_file" mimetype="image/*" multiple="false" maxsize="10MB" value="$info.tpl_image"}</span>
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">经纬度选择器</label>
-        <div class="col-sm-10 plupload-group">
+        <div class="col-sm-10 esa_upload-group">
             {ESA:GLOBE name="tpl_globe_coordinates" type="coordinates" value=""}
             <span class="help-block">例：{ESA【:】GLOBE name="tpl_globe" type="coordinates" value=""}</span>
             <span class="help-block">参数说明</span>
@@ -39,7 +39,7 @@
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">电子围栏选择器</label>
-        <div class="col-sm-10 plupload-group">
+        <div class="col-sm-10 esa_upload-group">
             {ESA:GLOBE name="tpl_globe_eea" type="EEA" value=""}
             <span class="help-block">例：{ESA【:】GLOBE name="tpl_globe_eea" type="EEA" value=""}</span>
             <span class="help-block">参数说明</span>
@@ -77,7 +77,7 @@
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">图标选择器</label>
-        <div class="col-sm-10 plupload-group">
+        <div class="col-sm-10 esa_upload-group">
             <div class="input-group">
                 <span class="input-group-addon" id="priview-icon">
                     <i class=""></i>
@@ -91,11 +91,11 @@
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">文件选择器</label>
-        <div class="col-sm-10 plupload-group">
+        <div class="col-sm-10 esa_upload-group">
             <div class="input-group">
                 <input type="text" class="form-control" id="upload" value="{$info.upload|default=''}">
                 <span class="input-group-btn">
-                    <button class="btn btn-default plupload disabled" type="button" id="plupload-upload" data-input-id="upload" data-preview-id="preview_upload" data-maxsize="10MB" data-mimetype="jpg,png" data-multipart="" data-multiple="true">上传</button>
+                    <button class="btn btn-default esa_upload disabled" type="button" id="esa_upload-upload" data-input-id="upload" data-preview-id="preview_upload" data-maxsize="10MB" data-mimetype="jpg,png" data-multipart="" data-multiple="true">上传</button>
                 </span>
                 <span class="input-group-btn">
                     <button class="btn btn-default chose_file disabled" type="button" data-input-id="upload" data-preview-id="preview_upload" data-maxsize="10MB" data-mimetype="jpg,png" data-multipart="" data-multiple="true">选择</button>
@@ -109,7 +109,7 @@
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">经纬度选择器</label>
-        <div class="col-sm-10 plupload-group">
+        <div class="col-sm-10 esa_upload-group">
             <div class="input-group">
                 <input type="text" class="form-control" id="cooordinate" value="{$info.upload|default=''}" readonly="">
                 <span class="input-group-btn">
@@ -120,7 +120,7 @@
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">电子围栏选择器</label>
-        <div class="col-sm-10 plupload-group">
+        <div class="col-sm-10 esa_upload-group">
             <div class="input-group">
                 <input type="text" class="form-control" id="eea" value="{$info.upload|default=''}" readonly="">
                 <span class="input-group-btn">
