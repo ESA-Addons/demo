@@ -9,7 +9,7 @@
     <button class="btn btn-info btn-sm" esa-event="reload"><i class="fa fa-refresh"></i></button>
 </script>
 <script id="tool" type="text/html">
-    <button esa-event="do">测试</button>
+    <%if (id%2 == 1) {%><button esa-event="do">测试</button><% } %>
 </script>
 <script>
 require(['ESA','esa_table','layer',"esa_switch"],function(ESA,Table,layer){

@@ -70,6 +70,12 @@
         </div><!-- /.col -->
     </div>
     <div class="form-group">
+        <label class="col-sm-2 control-label">SelectPage</label>
+        <div class="col-sm-10">
+            <input type="text" class="selectpage form-control" data-data="{:url('admin/ajax/sys_index')}">
+        </div><!-- /.col -->
+    </div>
+    <div class="form-group">
         <label class="col-sm-2 control-label">时间选择器</label>
         <div class="col-sm-10">
             <input type="text" name="date" id="date" class="form-control datetimepicker" data-date-format="YYYY-MM-DD" data-use-current="true" value="{$info.date|default=time()|date='Y-m-d H:i'}" placeholder="日期" autocomplete="off"/>
