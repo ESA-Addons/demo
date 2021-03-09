@@ -15,7 +15,7 @@
 require(['ESA','esa_table','layer',"esa_switch"],function(ESA,Table,layer){
     Table.init({
         elem: "#table2",
-        url: "{:addons_url('demo://system.example/list')}",
+        url: "{:addons_url('demo://admin.table/list')}",
         page: true,
         select: "checkbox",
         cols: [
@@ -40,14 +40,14 @@ require(['ESA','esa_table','layer',"esa_switch"],function(ESA,Table,layer){
         }else if(obj.event == "reload"){
             Table.reload("#table2");
         }else if(obj.event == "add"){
-            ESA.fun.open("{:addons_url('demo://system.example/form',['type'=>'tpl'])}","标题",{});
+            ESA.fun.open("{:addons_url('demo://admin.table/form',['type'=>'tpl'])}","标题",{});
         }else{
             ESA.msg(obj.event+"事件触发");
         }
     })
     Table.init({
         elem: "#table1",
-        url: "{:addons_url('demo://system.example/list')}",
+        url: "{:addons_url('demo://admin.table/list')}",
         page: true,
         select: "radio",
         cols: [
@@ -69,7 +69,7 @@ require(['ESA','esa_table','layer',"esa_switch"],function(ESA,Table,layer){
         }else if(obj.event == "reload"){
             Table.reload("#table1");
         }else if(obj.event == "add"){
-            ESA.fun.open("{:addons_url('demo://system.example/form',['type'=>'html'])}","标题",{});
+            ESA.fun.open("{:addons_url('demo://admin.table/form',['type'=>'html'])}","标题",{});
         }else{
             ESA.msg("表格内事件触发");
         }
