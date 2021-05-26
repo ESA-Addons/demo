@@ -12,6 +12,9 @@ namespace addons\demo\controller\admin;
 class Table extends Base
 {
     public function index(){
+        if($this->request->isAjax()){
+            return $this->model("test")->paginate($this->request->param("limit",20));
+        }
         return $this->fetch();
     }
     

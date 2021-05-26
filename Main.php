@@ -22,4 +22,11 @@ class Main extends Addons
     {
         return true;
     }
+    
+    public function model($model){
+        $models = [
+            "table" => "\addons\demo\model\Table",
+        ];
+        return model($models[$model]);
+    }
 }
