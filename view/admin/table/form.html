@@ -8,6 +8,13 @@
         </div><!-- /.col -->
     </div>
     <div class="form-group">
+        <label class="col-sm-2 control-label">随机字符串(TPL)</label>
+        <div class="col-sm-10">
+            {ESA:RANDOMSTR name="tpl_date" type="alnum" length="10"}
+            <span class="help-block">例：{ESA【:】RANDOMSTR name="tpl_date" type="alnum" length="10"}</span>
+        </div><!-- /.col -->
+    </div>
+    <div class="form-group">
         <label class="col-sm-2 control-label">时间选择器(TPL)</label>
         <div class="col-sm-10">
             {ESA:DATE name="tpl_date" value="$info.tpl_date" format="YYYY-MM-DD"}
@@ -77,11 +84,13 @@
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">随机字符串</label>
-        <div class="random_random">
-            <input class="form-control random" name="random" type="text" value="" data-type="alnum" data-length="16">
-            <span class="input-group-btn">
-				<button class="btn btn-default" type="button">生成</button>
-			</span>
+        <div class="col-sm-10">
+            <div class="input-group">
+                <input type="text" id="test" class="form-control" name="test" value="" placeholder="随机字符串"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default randomstr disabled" id="randomstr_btn_test" type="button" data-input-id="test" data-type="numeric" data-len="32">随机生成</button>
+                </span>
+            </div>
         </div>
     </div>
     

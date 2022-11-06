@@ -13,7 +13,7 @@ class Table extends Base
 {
     public function index(){
         if($this->request->isAjax()){
-            return $this->model("test")->paginate($this->request->param("limit",20));
+            return $this->model("table")->paginate($this->request->param("limit",20));
         }
         return $this->fetch();
     }
@@ -24,6 +24,7 @@ class Table extends Base
      */
     public function form()
     {
+        $id = $this->request->param("id");
         if($this->request->isajax()){
             $this->result("保存成功",$this->request->param());
         }
